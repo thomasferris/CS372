@@ -9,6 +9,7 @@ package pr1_2;
 /**
  *
  * @author aferris17
+ * @version 1
  */
 public class PR1_2 {
 
