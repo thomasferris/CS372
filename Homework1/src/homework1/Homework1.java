@@ -4,25 +4,31 @@
  * and open the template in the editor.
  */
 
-package javaapplication2;
+package homework1;
 
-import java.util.Scanner;
+class DataOnly {
+  int i;
+  float f;
+  boolean b;
+  
+}
 
 /**
  *
  * @author aferris17
  */
-public class JavaApplication2 {
+public class Homework1 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String name = "Amy";
-        System.out.printf("Hello %s what is your score:\n", name);
-        Scanner input = new Scanner (System.in);
-        int score = input.nextInt();
-        System.out.printf("your score is %d\n", score);
+        DataOnly d = new DataOnly();
+        d.i = 6;
+        d.f = 2.5f;
+        d.b = true;
+        System.out.printf("i is %d \nf is %f \nb is %b \n" , d.i, d.f, d.b);
+        
     }
     
 }
