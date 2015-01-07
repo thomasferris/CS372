@@ -19,8 +19,8 @@ import java.util.Scanner;
 
 public class PR1_4 {
     /**
+     *  print Area given a specified radius
      * @param args the command line arguments
-     * return no value, print Area
      */
    
     public static void main(String[] args) {

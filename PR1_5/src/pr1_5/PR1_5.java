@@ -15,9 +15,12 @@ import java.util.Random;
 public class PR1_5 {
 
     /**
-     * @param args the command line arguments
      * create object of random
-     * return no value, but print line for which random is greater.
+     * <p>
+     * print line for which random is greater.
+     * <p>
+     * @param args the command line arguments
+     * 
      */
     public static void main(String[] args) {
        int x;
@@ -25,12 +28,12 @@ public class PR1_5 {
        
        Random rand = new Random();
        for (int i=0; i<25; i++){
-           x = rand.nextInt();
-           y = rand.nextInt();
+           x = rand.nextInt(100);
+           y = rand.nextInt(100);
            if (x>y){
-               System.out.println("Random X is greater");
+               System.out.printf("Random X, %d, is greater than Y, %d \n", x, y);
            }
-           else System.out.println("Random Y is greater");
+           else System.out.printf("Random Y, %d, is greater than X, %d \n", y, x);
        }
            
     }

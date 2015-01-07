@@ -14,6 +14,7 @@ package pr1_2;
 public class PR1_2 {
 
     /**
+     * prints 3 strings from command line
      * @param args the command line arguments
      */
     public static void main(String[] args) {
