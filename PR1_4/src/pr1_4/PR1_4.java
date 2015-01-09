@@ -27,7 +27,7 @@ public class PR1_4 {
         System.out.println("What is the radius?");
         Scanner input = new Scanner(System.in);
         double x = input.nextDouble();
-        final double PI = 3.14; 
+        final double PI = 3.14; //PT: use java.lang.Math.PI instead
         double Area = PI * x*x;
         System.out.printf("Area is: %f", Area);
     }
