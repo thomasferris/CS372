@@ -7,13 +7,14 @@
 package pr2_2;
 
 import java.util.*;
+import pr2_1.*;
 
 /**
  *
  * @author aferris17
  */
 public class PR2_2 {
-     public static ArrayList<Gerbil> array = new ArrayList<Gerbil>();
+     public static List gerbils = new ArrayList<Gerbil>();
 
     /**
      * @param args the command line arguments
@@ -21,9 +22,9 @@ public class PR2_2 {
     public static void main(String[] args) {
         for (int i=0; i<20; i++){
             Gerbil ger = new Gerbil(i);
-            array.add(ger);
+            gerbils.add(ger);
         }
-        Iterator<Gerbil> e = array.iterator();
+        Iterator<Gerbil> e = gerbils.iterator();
         while (e.hasNext()){
             Gerbil gerb = e.next();
             gerb.hop();
