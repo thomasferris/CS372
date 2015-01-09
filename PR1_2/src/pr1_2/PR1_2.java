@@ -18,6 +18,9 @@ public class PR1_2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //PT: Since you're expecting three arguments, it'd be good to check for that:
+        //if (args.length < 3) System.out.println("Please pass three argument");
+        // else { ...
         for (int i=0; i<3; i++)
         {
             System.out.printf("%s", args[i]);
