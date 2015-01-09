@@ -5,6 +5,7 @@
  */
 
 package pr2_4;
+import java.util.*;
 
 /**
  *
@@ -16,7 +17,26 @@ public class PR2_4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        HashMap<String, Gerbil2> gerbils = new HashMap<name, number>();
+        Random rnd = new Random();
+        HashMap<String, Gerbil2> gerbils = new HashMap<String, Gerbil2>();
+        ArrayList<String> gerb = new ArrayList<String>();
+        String[]names = {"Joe","Gerry","Barry","Fluffy","Buffy","Sal","Bess","Grace","Amelia","Kele"};
+        
+        for (int i=0; i<7;i++){
+            String name = names[rnd.nextInt(names.length)];
+            Gerbil2 ger = new Gerbil2(name,i);
+            gerb.add(name);
+            gerbils.put(name,ger);
+        }
+        
+        Iterator<String> e = gerb.iterator();
+        while (e.hasNext()){
+            String gerName = e.next();
+            System.out.printf("%s, ",gerName);
+            gerbils.get(gerName).hop();
+        
+        }
+       
     }
     
 }
