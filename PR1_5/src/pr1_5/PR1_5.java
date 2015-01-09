@@ -32,7 +32,7 @@ public class PR1_5 {
            y = rand.nextInt(100);
            if (x>y){
                System.out.printf("Random X, %d, is greater than Y, %d \n", x, y);
-           }
+           } //PT: what if x == y ?
            else System.out.printf("Random Y, %d, is greater than X, %d \n", y, x);
        }
            
