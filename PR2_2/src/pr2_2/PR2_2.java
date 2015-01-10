@@ -17,7 +17,9 @@ public class PR2_2 {
      public static List gerbils = new ArrayList<Gerbil>();
 
     /**
+     * Main adds gerbils to the arraylist and calls hop for each
      * @param args the command line arguments
+     * 
      */
     public static void main(String[] args) {
         for (int i=0; i<20; i++){

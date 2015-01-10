@@ -16,8 +16,8 @@ public class PR2_1 {
     
 
     /**
-     * @param args the command line arguments
      * adds gerbils to array and calls hop for all
+     * @param args the command line arguments
      */
     public static void main(String[] args) {
         for (int i=0; i<20; i++){

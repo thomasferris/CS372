@@ -42,25 +42,25 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="Min" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="Max" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="Enter" min="-2" pref="68" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="Average" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="Min" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="Max" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="Average" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                      <Component id="Enter" min="-2" pref="83" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="87" max="32767" attributes="0"/>
@@ -70,14 +70,18 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Enter" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="37" max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Min" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Max" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -99,7 +103,7 @@
         <Component class="javax.swing.JList" name="jList1">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new DefaultListModel&lt;Double&gt;(){&#xd;&#xa;public int getSize(){return scores.size();}&#xd;&#xa;public Double getElementAt(int i){return scores.get(i);}&#xd;&#xa;public void addElement(Double f){super.addElement(f);scores.add(f);}&#xd;&#xa;public void add(int i, Double f){super.add(i,f);scores.add(i,f);}&#xd;&#xa;&#xd;&#xa;}" type="code"/>
+              <Connection code="new DefaultListModel&lt;Double&gt;(){&#xd;&#xa;public int getSize(){return scores.size();}&#xd;&#xa;public Double getElementAt(int i){&#xd;&#xa;return scores.get(i);&#xd;&#xa;}&#xd;&#xa;public void addElement(Double f){&#xd;&#xa;super.addElement(f);&#xd;&#xa;//scores.add(f);&#xd;&#xa;}&#xd;&#xa;public void add(int i, Double f){&#xd;&#xa;super.add(i,f);&#xd;&#xa;//scores.add(i,f);&#xd;&#xa;}&#xd;&#xa;&#xd;&#xa;}" type="code"/>
             </Property>
           </Properties>
         </Component>
@@ -131,6 +135,16 @@
     <Component class="javax.swing.JLabel" name="Average">
       <Properties>
         <Property name="text" type="java.lang.String" value="Average"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Score List:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Score Data:"/>
       </Properties>
     </Component>
   </SubComponents>

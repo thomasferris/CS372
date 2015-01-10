@@ -7,7 +7,7 @@
 package pr2_7;
 
 /**
- *
+ *  class performs calculations for sales and keeps track of number sold
  * @author aferris17
  */
 public class Calculations {
@@ -18,14 +18,26 @@ public class Calculations {
     
     Calculations (){};
     
-    public int addSales(int mint, int sam, int choc){
-        _numMint+=mint;
-        _numSamoa+=sam;
-        _numChoc+=choc;
+    public int addSales(int mint, int sam, int choc){        
         int sales = 3*mint + 4*sam + 5*choc;
         _totalSales+=sales;
         return _totalSales;
         
+    }
+    
+    public void setMint(int mint){
+       _numMint+=mint;
+
+    }
+    
+    public void setSamoa(int sam){
+       _numSamoa+=sam;
+
+    }
+    
+    public void setChoc(int choc){
+       _numChoc+=choc;
+
     }
     
     public int getMint (){return _numMint;}

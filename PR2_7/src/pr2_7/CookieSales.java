@@ -38,12 +38,18 @@ public class CookieSales extends javax.swing.JFrame {
         AddC = new javax.swing.JTextField();
         Button = new javax.swing.JButton();
         Total = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Mint.setText("Thin Mints:");
 
-        AddM.setText("Add Sales");
+        AddM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddMActionPerformed(evt);
+            }
+        });
 
         Sam.setText("Samoas:");
 
@@ -53,7 +59,7 @@ public class CookieSales extends javax.swing.JFrame {
             }
         });
 
-        Choc.setText("Choc. Chip");
+        Choc.setText("Choc. Chip:");
 
         Button.setText("Add!");
         Button.addActionListener(new java.awt.event.ActionListener() {
@@ -64,53 +70,68 @@ public class CookieSales extends javax.swing.JFrame {
 
         Total.setText("Total Sales:");
 
+        jLabel1.setText("Add Sales:");
+
+        jLabel2.setFont(new java.awt.Font("Traditional Arabic", 2, 36)); // NOI18N
+        jLabel2.setText("Cookie Sales Tracker");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(Button))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Mint)
-                                    .addComponent(AddM, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AddS, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Sam))))
-                        .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Choc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AddC)))
+                        .addGap(122, 122, 122)
+                        .addComponent(Total))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(Total)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(AddM, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(Button)
+                                        .addComponent(jLabel1))
+                                    .addGap(97, 97, 97)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(Mint)))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Sam)
+                            .addComponent(AddS, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Choc)
+                            .addComponent(AddC, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Mint)
                     .addComponent(Sam)
                     .addComponent(Choc))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
+                    .addComponent(AddC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(20, 20, 20)
                 .addComponent(Button)
-                .addGap(39, 39, 39)
+                .addGap(4, 4, 4)
                 .addComponent(Total)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(85, 85, 85))
         );
 
         pack();
@@ -121,22 +142,31 @@ public class CookieSales extends javax.swing.JFrame {
     }//GEN-LAST:event_AddSActionPerformed
 
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
-        int m = Integer.parseInt(Mint.getText());
-        int s = Integer.parseInt(Sam.getText());
-        int c = Integer.parseInt(Choc.getText());
+        int m = Integer.parseInt(AddM.getText());
+        int s = Integer.parseInt(AddS.getText());
+        int c = Integer.parseInt(AddC.getText());
         
-        String tot = String.format("Total Sales: %d", (int)cal.addSales(m, s, c));
+        cal.setMint(m);
+        cal.setSamoa(s);
+        cal.setChoc(c);
+        
+        
+        String tot = String.format("Total Sales: $%d", (int)cal.addSales(m, s, c));
         Total.setText(tot);
         
         String mint = String.format("Thin Mints: %d", cal.getMint());
         Mint.setText(mint);
         
         String sam = String.format("Samoas: %d", cal.getSamoa());
-        Mint.setText(sam);
+        Sam.setText(sam);
         
         String ch = String.format("Choc. Chip: %d", cal.getChoc());
-        Mint.setText(ch);
+        Choc.setText(ch);
     }//GEN-LAST:event_ButtonActionPerformed
+
+    private void AddMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,5 +212,7 @@ public class CookieSales extends javax.swing.JFrame {
     private javax.swing.JLabel Mint;
     private javax.swing.JLabel Sam;
     private javax.swing.JLabel Total;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

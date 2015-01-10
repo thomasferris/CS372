@@ -8,7 +8,7 @@ package pr2_6;
 import java.util.*;
 
 /**
- *
+ *  class for calculating min, max, and average
  * @author aferris17
  */
 public class Calculations {
@@ -16,7 +16,7 @@ public class Calculations {
     public Double min (ArrayList<Double>scores){
         double temp = scores.get(0);
         for (int i=1; i<scores.size();i++){
-            if (temp < scores.get(i)){
+            if (temp > scores.get(i)){
                 temp = scores.get(i);
             }
         }
@@ -26,7 +26,7 @@ public class Calculations {
     public Double max (ArrayList<Double>scores){
         double temp = scores.get(0);
         for (int i=1; i<scores.size();i++){
-            if (temp >scores.get(i)){
+            if (temp < scores.get(i)){
                 temp = scores.get(i);
             }
         }

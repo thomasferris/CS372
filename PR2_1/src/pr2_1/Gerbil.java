@@ -7,7 +7,7 @@
 package pr2_1;
 
 /**
- *
+ *class gerbil, one method, hop
  * @author aferris17
  */
 public class Gerbil {

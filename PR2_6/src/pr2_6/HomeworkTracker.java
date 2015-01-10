@@ -42,6 +42,8 @@ public class HomeworkTracker extends javax.swing.JFrame {
         Min = new javax.swing.JLabel();
         Max = new javax.swing.JLabel();
         Average = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -49,9 +51,17 @@ public class HomeworkTracker extends javax.swing.JFrame {
 
         jList1.setModel(new DefaultListModel<Double>(){
             public int getSize(){return scores.size();}
-            public Double getElementAt(int i){return scores.get(i);}
-            public void addElement(Double f){super.addElement(f);scores.add(f);}
-            public void add(int i, Double f){super.add(i,f);scores.add(i,f);}
+            public Double getElementAt(int i){
+                return scores.get(i);
+            }
+            public void addElement(Double f){
+                super.addElement(f);
+                //scores.add(f);
+            }
+            public void add(int i, Double f){
+                super.add(i,f);
+                //scores.add(i,f);
+            }
 
         });
         jScrollPane1.setViewportView(jList1);
@@ -71,6 +81,10 @@ public class HomeworkTracker extends javax.swing.JFrame {
 
         Average.setText("Average");
 
+        jLabel1.setText("Score List:");
+
+        jLabel2.setText("Score Data:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,32 +96,38 @@ public class HomeworkTracker extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Min)
-                                .addGap(49, 49, 49)
-                                .addComponent(Max)
-                                .addGap(37, 37, 37))
-                            .addComponent(Enter, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(Average)))))
+                        .addComponent(Min)
+                        .addGap(26, 26, 26)
+                        .addComponent(Max)
+                        .addGap(42, 42, 42)
+                        .addComponent(Average))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(Enter, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton1)))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Enter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Min)
                     .addComponent(Max)
@@ -123,11 +143,11 @@ public class HomeworkTracker extends javax.swing.JFrame {
        ((DefaultListModel)jList1.getModel()).addElement(s);
        
        scores.add(s);
-       String f = String.format("Minimum: %f", cal.min(scores));
+       String f = String.format("Minimum: %5.2f", cal.min(scores));
        Min.setText(f);
-       String y = String.format("Maximum: %f", cal.max(scores));
+       String y = String.format("Maximum: %5.2f", cal.max(scores));
        Max.setText(y);
-       String z = String.format("Average: %f", cal.avg(scores));
+       String z = String.format("Average: %5.2f", cal.avg(scores));
        Average.setText(z);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -172,6 +192,8 @@ public class HomeworkTracker extends javax.swing.JFrame {
     private javax.swing.JLabel Max;
     private javax.swing.JLabel Min;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
