@@ -4,27 +4,19 @@
  * and open the template in the editor.
  */
 
-package pr2_6;
-import java.util.*;
+package pr2_7;
 
 /**
  *
  * @author aferris17
  */
-public class PR2_6 {
+public class PR2_7 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         ArrayList <Double> scores = new ArrayList<Double>();
-         Scanner input = new Scanner (System.in);
- 
-         do{
-             double sco;
-             scores.add()
-             
-         }
+        // TODO code application logic here
     }
     
 }
