@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @author aferris17
  */
+//PT -- when you commit to GitHub, be sure to include comments
 public class PR2_1 {
     public static ArrayList<Gerbil> array = new ArrayList<Gerbil>();
     

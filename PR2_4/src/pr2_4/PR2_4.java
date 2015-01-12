@@ -20,6 +20,8 @@ public class PR2_4 {
         Random rnd = new Random();
         HashMap<String, Gerbil2> gerbils = new HashMap<String, Gerbil2>();
         ArrayList<String> gerb = new ArrayList<String>();
+        //PT -- you actually don't need to store the names. HashMap has
+        //     a keySet method, so you can use an iterator over that.
         String[]names = {"Joe","Gerry","Barry","Fluffy","Buffy","Sal","Bess","Grace","Amelia","Kele"};
         
         for (int i=0; i<7;i++){

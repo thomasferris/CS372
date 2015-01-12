@@ -18,6 +18,8 @@ public class Calculate {
         double pi = 4.0;
         int count = 0;
         for (int i=3; i<num*2+3; i+=2){
+            //PT -- You could actually get rid of this if/else, and take advantage
+            //     of the fact that -1^n is 1 if n is even, and -1 if n is odd.
             if (count%2 == 0)
                 pi -= 4/(double)i;
             else pi+= 4/(double)i;

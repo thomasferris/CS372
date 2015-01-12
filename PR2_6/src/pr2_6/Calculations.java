@@ -12,6 +12,10 @@ import java.util.*;
  * @author aferris17
  */
 public class Calculations {
+    //PT -- Since Calculations doesn't have any member variables, all these
+    //      methods could just be static. Then you don't have to create a new
+    //      Calculation object in HomeworkTracker; you'd just call the static
+    //      functions
     Calculations (){};
     public Double min (ArrayList<Double>scores){
         double temp = scores.get(0);

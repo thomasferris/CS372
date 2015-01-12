@@ -12,7 +12,7 @@ import pr2_1.*;
  *
  * @author aferris17
  */
-public class Gerbil2 extends Gerbil {
+public class Gerbil2 extends Gerbil { //PT -- also good.
     private int _gerbilNumber;
     private String _gerbilName;
     public Gerbil2 (String gerbilName, int gerbilNumber){
