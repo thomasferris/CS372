@@ -11,5 +11,23 @@ package pr3_2;
  * @author aferris17
  */
 public class Ellipse {
-    public Ellipse (int r1, int r2){};
+    private int _r1, _r2;
+    
+    public Ellipse (int r1, int r2)throws MyException{
+        if (!(r1 >0 && r2>0))
+            throw new MyException();
+        _r1 = r1;
+        _r2 = r2;
+                    }
+    
+    public double getArea(){
+        return Math.PI * _r1 * _r2;
+        
+    }
+    
+    public double getPerimeter(){
+        double x = (10*_r1*_r2 + 3*_r2 + 3*_r2);
+        return (Math.PI *(3*_r1+3*_r2 - Math.sqrt(x)));
+        
+    }
 }

@@ -7,7 +7,7 @@
 package pr2_2;
 
 import java.util.*;
-import pr2_1.*;
+import pr2_1.*; //PT -- good
 
 /**
  *
