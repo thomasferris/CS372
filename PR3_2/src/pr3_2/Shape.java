@@ -5,20 +5,20 @@
  */
 
 package pr3_2;
-import java.util.*;
 
 /**
  *
  * @author aferris17
  */
-public class PR3_2 {
+public class Shape {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-         Scanner input = new Scanner(System.in);
-        
+    public double getArea() {
+        return 0;
     }
-    
+
+    public double getPerimeter() {
+        return 0;
+    }
+
 }
+

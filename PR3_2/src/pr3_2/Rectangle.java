@@ -5,20 +5,11 @@
  */
 
 package pr3_2;
-import java.util.*;
 
 /**
  *
  * @author aferris17
  */
-public class PR3_2 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-         Scanner input = new Scanner(System.in);
-        
-    }
-    
+public class Rectangle extends Shape{
+    public Rectangle(int width, int height){};
 }
