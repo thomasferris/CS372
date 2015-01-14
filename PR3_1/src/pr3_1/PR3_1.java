@@ -8,7 +8,7 @@ package pr3_1;
 import java.util.*;
 
 /**
- *
+ * Reads 10 integers input by user, catches an exception if it is the wrong type.
  * @author aferris17
  */
 public class PR3_1 {

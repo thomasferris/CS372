@@ -7,10 +7,10 @@
 package pr3_2;
 
 /**
- *
+ * Ellipse class, inherits from shape
  * @author aferris17
  */
-public class Ellipse {
+public class Ellipse extends Shape{
     private int _r1, _r2;
     
     public Ellipse (int r1, int r2)throws MyException{

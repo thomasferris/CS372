@@ -8,7 +8,7 @@ package pr3_2;
 import java.util.*;
 
 /**
- *
+ * user picks a shape and gives dimensions to get area and perimeter.
  * @author aferris17
  */
 public class PR3_2 {

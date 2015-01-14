@@ -8,10 +8,10 @@ package pr3_2;
 import pr3_2.MyException;
 
 /**
- *
+ * Triangle class, inherits from shape
  * @author aferris17
  */
-public class Triangle {
+public class Triangle extends Shape {
     private int _s1, _s2, _s3;
     public Triangle(int s1, int s2, int s3)throws MyException {
         if (s1+s2<s3 || s2+s3<s1 || s1+s3<s2 || s1<=0 || s2 <=0 || s3 <=0){

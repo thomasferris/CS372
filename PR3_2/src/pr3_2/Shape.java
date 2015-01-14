@@ -7,7 +7,7 @@
 package pr3_2;
 
 /**
- *
+ * Shape base class with area and perimeter 
  * @author aferris17
  */
 public class Shape {

@@ -8,7 +8,7 @@ package pr3_1;
 import java.util.*;
 
 /**
- *
+ *Runs calculations to find minimum, maximum, and average.
  * @author aferris17
  */
 public class Calculate {

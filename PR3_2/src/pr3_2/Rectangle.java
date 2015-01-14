@@ -7,7 +7,7 @@
 package pr3_2;
 
 /**
- *
+ * Rectangle class, inherits from shape
  * @author aferris17
  */
 public class Rectangle extends Shape{
