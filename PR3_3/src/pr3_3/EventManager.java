@@ -174,11 +174,11 @@ public class EventManager extends javax.swing.JFrame {
         File f = new File ("C:\\Users\\aferris17\\Documents\\Events.txt");
         File fcopy = new File ("C:\\Users\\aferris17\\Documents\\Events.txt");
         
-        
+        int month = parseInt (Month.getText());
         
         try{
             Event event = new Event();
-        }
+        }catch MyException
         String s = Name.getText()+" "+Location.getText()+" "+Month.getText()+" "
                 +Date.getText()+" "+Year.getText()+" ";
         
