@@ -26,6 +26,12 @@ public class Event {
                 (month==8&&date>31) || (month==10&&date>31) || (month==12&&date>31) ||
                 (month==4&&date>30) || (month==6&&date>30) || (month==9&&date>30) || (month==11&&date>30)
                 || (month==2&&date>29) || (year%4!=0&&date>28) || (year<2015)){
+            _name = name;
+            _loc = loc;
+            _mo = month;
+            _date = date;
+            _year = year;
+            
             throw new MyException();
         }
     }
@@ -44,6 +50,12 @@ public class Event {
     }
     public Integer getYear(){
         return _year;
+    }
+    
+    
+    @Override
+    public String toString(){
+        return String.format("%d/%d/%d  %s  %s",_mo,_date,_year,_name,_loc);
     }
     
 

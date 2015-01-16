@@ -198,7 +198,9 @@ public class EventManager extends javax.swing.JFrame {
         
         try{
             Event event = new Event(Name.getText(), Location.getText(), month, date, year);
-        }catch (MyException e){}
+        }catch (MyException e){
+        Warn.setText("Invalid date.");
+        }
         
         
         String s = Month.getText()+"/"+Date.getText()+"/"+Year.getText()+"  "+
@@ -245,8 +247,11 @@ public class EventManager extends javax.swing.JFrame {
 
                 try {
                     Event e = new Event(name, loc, month, date, year);
+                    
                     array.add(e);
+                    System.out.println(e.toString());
                 } catch (MyException exc) {
+                    Warn.setText("Invalid date.");
                 }
 
                 
@@ -254,8 +259,8 @@ public class EventManager extends javax.swing.JFrame {
                 Collections.sort(array, Event.DateComparator);
                 
                 for (Event e:array){
-                    String string = e.getMonth()+e.getDate()+e.getYear()+
-                            e.getName()+e.getLocation();
+                    String string = (e.toString());
+                    System.out.println(string);
                     ((DefaultListModel)View.getModel()).addElement(string);
                 }
                 
