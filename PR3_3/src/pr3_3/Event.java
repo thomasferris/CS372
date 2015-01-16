@@ -26,14 +26,16 @@ public class Event {
                 (month==8&&date>31) || (month==10&&date>31) || (month==12&&date>31) ||
                 (month==4&&date>30) || (month==6&&date>30) || (month==9&&date>30) || (month==11&&date>30)
                 || (month==2&&date>29) || (year%4!=0&&date>28) || (year<2015)){
-            _name = name;
-            _loc = loc;
-            _mo = month;
-            _date = date;
-            _year = year;
+            
             
             throw new MyException();
         }
+        
+        _name = name;
+        _loc = loc;
+        _mo = month;
+        _date = date;
+        _year = year;
     }
     
     public String getName(){
@@ -69,6 +71,24 @@ public class Event {
             if (cmp==0)
                 cmp = e1.getDate().compareTo(e2.getDate());
             
+            return cmp;
+        };
+    };
+    
+     public static Comparator<Event> NameComparator = new Comparator<Event>(){
+        @Override
+        public int compare (Event e1, Event e2){
+            int cmp = e1.getName().compareTo(e2.getName());
+                        
+            return cmp;
+        };
+    };
+     
+      public static Comparator<Event> LocComparator = new Comparator<Event>(){
+        @Override
+        public int compare (Event e1, Event e2){
+            int cmp = e1.getLocation().compareTo(e2.getLocation());
+                        
             return cmp;
         };
     };

@@ -77,8 +77,18 @@ public class EventManager extends javax.swing.JFrame {
         });
 
         jButton1.setText("Sort by name ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Sort by location");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         ViewButton.setText("View All Events");
         ViewButton.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +102,7 @@ public class EventManager extends javax.swing.JFrame {
             public String getElementAt(int i){return events.get(i);}
             public void addElement(String f){super.addElement(f); events.add(f);}
             public void add(int i, String f){super.add(i,f);events.add(i,f);}
+            public void clear(){super.clear();events.clear();}
         });
         jScrollPane1.setViewportView(View);
 
@@ -225,15 +236,17 @@ public class EventManager extends javax.swing.JFrame {
     }//GEN-LAST:event_AddActionPerformed
 
     private void ViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewButtonActionPerformed
-            
-        File f = new File ("C:\\Users\\aferris17\\Documents\\Events.txt");
+
+        ((DefaultListModel) View.getModel()).clear();
         
-        
+        File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
+
         BufferedReader rdr = null;
-        
-        
-        try{
+
+        try {
             rdr = new BufferedReader(new FileReader(f));
+
+            Event e = null;
 
             String line;
             while ((line = rdr.readLine()) != null) {
@@ -246,38 +259,137 @@ public class EventManager extends javax.swing.JFrame {
                 String loc = str[4];
 
                 try {
-                    Event e = new Event(name, loc, month, date, year);
-                    
+                    e = new Event(name, loc, month, date, year);
                     array.add(e);
+
+                    for (int i=0; i<array.size();i++){
                     System.out.println(e.toString());
+                    }
+
                 } catch (MyException exc) {
                     Warn.setText("Invalid date.");
                 }
 
-                
-                
-                Collections.sort(array, Event.DateComparator);
-                
-                for (Event e:array){
-                    String string = (e.toString());
-                    System.out.println(string);
-                    ((DefaultListModel)View.getModel()).addElement(string);
-                }
-                
-                
- 
             }
-            
+            Collections.sort(array, Event.DateComparator);
+
+            for (Event ev : array) {
+                String string = (ev.toString());
+                System.out.println(string);
+                ((DefaultListModel) View.getModel()).addElement(string);
+            }
+
             rdr.close();
-            
-            
- 
-        }
-        catch (Exception ex){
+
+        } catch (Exception ex) {
             ex.printStackTrace();
             Warn.setText("Something went wrong. Sorry!");
         }
     }//GEN-LAST:event_ViewButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ((DefaultListModel) View.getModel()).clear();
+        
+        File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
+
+        BufferedReader rdr = null;
+        
+        
+        try {
+            rdr = new BufferedReader(new FileReader(f));
+
+            Event e = null;
+
+            String line;
+            while ((line = rdr.readLine()) != null) {
+
+                String[] str = line.split("[\\p{Punct}\\s]+");
+                int month = Integer.parseInt(str[0]);
+                int date = Integer.parseInt(str[1]);
+                int year = Integer.parseInt(str[2]);
+                String name = str[3];
+                String loc = str[4];
+                
+                try {
+                    e = new Event(name, loc, month, date, year);
+                    array.add(e);
+
+                    System.out.println(e.toString());
+
+                } catch (MyException exc) {
+                    Warn.setText("Invalid date.");
+                }
+
+            }
+             Collections.sort(array, Event.NameComparator);
+
+            for (Event ev : array) {
+                String string = (ev.toString());
+                System.out.println(string);
+                ((DefaultListModel) View.getModel()).addElement(string);
+            }
+
+            rdr.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Warn.setText("Something went wrong. Sorry!");
+        }
+
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ((DefaultListModel) View.getModel()).clear();
+        
+        File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
+
+        BufferedReader rdr = null;
+        
+        
+        try {
+            rdr = new BufferedReader(new FileReader(f));
+
+            Event e = null;
+
+            String line;
+            while ((line = rdr.readLine()) != null) {
+
+                String[] str = line.split("[\\p{Punct}\\s]+");
+                int month = Integer.parseInt(str[0]);
+                int date = Integer.parseInt(str[1]);
+                int year = Integer.parseInt(str[2]);
+                String name = str[3];
+                String loc = str[4];
+                
+                try {
+                    e = new Event(name, loc, month, date, year);
+                    array.add(e);
+
+                    System.out.println(e.toString());
+
+                } catch (MyException exc) {
+                    Warn.setText("Invalid date.");
+                }
+
+            }
+             Collections.sort(array, Event.LocComparator);
+
+            for (Event ev : array) {
+                String string = (ev.toString());
+                System.out.println(string);
+                ((DefaultListModel) View.getModel()).addElement(string);
+            }
+
+            rdr.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Warn.setText("Something went wrong. Sorry!");
+        }
+
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
