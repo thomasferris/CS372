@@ -17,6 +17,7 @@ import pr3_2.MyException;
  */
 public class EventManager extends javax.swing.JFrame {
     ArrayList <String> events = new ArrayList <String>();
+    ArrayList <Event> array = new ArrayList <Event>();
 
     /**
      * Creates new form EventManager
@@ -233,15 +234,42 @@ public class EventManager extends javax.swing.JFrame {
             rdr = new BufferedReader(new FileReader(f));
 
             String line;
-            while ((line = rdr.readLine())!=null){
-                ((DefaultListModel)View.getModel()).addElement(line);
+            while ((line = rdr.readLine()) != null) {
+
+                String[] str = line.split("[\\p{Punct}\\s]+");
+                int month = Integer.parseInt(str[0]);
+                int date = Integer.parseInt(str[1]);
+                int year = Integer.parseInt(str[2]);
+                String name = str[3];
+                String loc = str[4];
+
+                try {
+                    Event e = new Event(name, loc, month, date, year);
+                    array.add(e);
+                } catch (MyException exc) {
+                }
+
+                
+                
+                Collections.sort(array, Event.DateComparator);
+                
+                for (Event e:array){
+                    String string = e.getMonth()+e.getDate()+e.getYear()+
+                            e.getName()+e.getLocation();
+                    ((DefaultListModel)View.getModel()).addElement(string);
+                }
+                
+                
  
             }
             
             rdr.close();
+            
+            
  
         }
         catch (Exception ex){
+            ex.printStackTrace();
             Warn.setText("Something went wrong. Sorry!");
         }
     }//GEN-LAST:event_ViewButtonActionPerformed

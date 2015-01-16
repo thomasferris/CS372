@@ -59,9 +59,9 @@ public class Event {
             
             return cmp;
         };
-    }
+    };
             
             
-    }; 
+    } 
     
 
