@@ -12,7 +12,7 @@ package pr3_2;
  */
 public class MyException extends Throwable{
     public MyException(){
-        System.out.println("Not valid measurements.");
+        System.out.println("Not valid entry.");
     };
     public MyException(String msg){};
     public MyException(String msg, Throwable e){};
