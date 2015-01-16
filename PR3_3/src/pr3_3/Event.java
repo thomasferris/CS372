@@ -11,6 +11,9 @@ import java.lang.*;
 
 /**
  * Event class stores the name, location, and date of the event.
+ * Constructor takes parameters for each property and throws a MyException if invalid date.
+ * Override method for toString 
+ * Three comparator methods for comparing by date, name, and location
  * @author aferris17
  */
 public class Event {

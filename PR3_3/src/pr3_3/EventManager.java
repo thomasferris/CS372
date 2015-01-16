@@ -8,11 +8,12 @@ package pr3_3;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import javax.swing.DefaultListModel;
+import javax.swing.*;
 import pr3_2.MyException;
 
 /**
- *
+ * EventManager allows user to enter a new event and view the calandar of all events.
+ * The sort buttons allow the list of events to be sorted by date(default), name, or location.
  * @author aferris17
  */
 public class EventManager extends javax.swing.JFrame {
@@ -238,6 +239,7 @@ public class EventManager extends javax.swing.JFrame {
     private void ViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewButtonActionPerformed
 
         ((DefaultListModel) View.getModel()).clear();
+        array.clear();
 
         
         
@@ -291,6 +293,7 @@ public class EventManager extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ((DefaultListModel) View.getModel()).clear();
+        array.clear();
         
         File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
 
@@ -343,6 +346,7 @@ public class EventManager extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ((DefaultListModel) View.getModel()).clear();
+        array.clear();
         
         File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
 
