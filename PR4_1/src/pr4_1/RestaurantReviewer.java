@@ -5,12 +5,20 @@
  */
 
 package pr4_1;
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
 
 /**
  *
  * @author aferris17
  */
 public class RestaurantReviewer extends javax.swing.JFrame {
+    File f = new File("C:\\Users\\aferris17\\Documents\\Restaurant.txt");
+    
+    ArrayList <Restaurant> restaurants = new ArrayList <Restaurant>();
+    ArrayList <String> array = new ArrayList <String>();
+    String selected;
 
     /**
      * Creates new form RestaurantReviewer
@@ -30,19 +38,22 @@ public class RestaurantReviewer extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        Entries = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
+        Address = new javax.swing.JTextField();
+        Rating = new javax.swing.JTextField();
+        Comments = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        Old = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -50,17 +61,25 @@ public class RestaurantReviewer extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        Entries.setModel(new DefaultListModel<String>(){
+            public int getSize(){return array.size();}
+            public String getElementAt(int i){return array.get(i);}
+            public int getSelectedIndex(){return super.getSelectedIndex();}
+            public void addElement(String f){super.addElement(f); array.add(f);}
+            public void add(int i, String f){super.add(i,f);array.add(i,f);}
+            public void clear(){super.clear();array.clear();}
         });
-        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Entries.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList1MouseClicked(evt);
+                EntriesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jList1);
+        Entries.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                EntriesValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Entries);
 
         jLabel1.setText("Restaurant Review");
 
@@ -74,15 +93,29 @@ public class RestaurantReviewer extends javax.swing.JFrame {
 
         jLabel7.setText("Comments:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
 
         jButton1.setText("Add Entry");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Old Entries:");
+
+        jButton2.setText("Select");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        Old.setText("jLabel10");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,17 +137,24 @@ public class RestaurantReviewer extends javax.swing.JFrame {
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 234, Short.MAX_VALUE))
+                                .addComponent(Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Old)
+                                .addGap(423, 423, 423))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3))
+                                    .addComponent(Name, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(Address)
+                                    .addComponent(Rating))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
@@ -131,7 +171,10 @@ public class RestaurantReviewer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel9)
+                            .addComponent(Old))
                         .addGap(2, 2, 2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -142,15 +185,15 @@ public class RestaurantReviewer extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Rating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,26 +201,107 @@ public class RestaurantReviewer extends javax.swing.JFrame {
                                 .addGap(166, 166, 166))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Comments, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(38, 38, 38)
                                 .addComponent(jButton1)
                                 .addContainerGap(77, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Restaurant res = null;
         
-    }//GEN-LAST:event_jList1MouseClicked
+        try{
+        res = new Restaurant (Name.getText(), Address.getText(), Comments.getText(), 
+                Integer.parseInt(Rating.getText()));
+        }catch(MyException e){
+        Old.setText("Invalid rating");
+        }
+        restaurants.add(res);
+        
+        String string = res.toString();
+        
+        try{
+            
+            BufferedWriter wrtr = new BufferedWriter(new FileWriter(f,true));
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+                wrtr.write(string);
+                wrtr.newLine();
+            
+            wrtr.close();
+
+            
+        }catch (Exception e){
+            Old.setText("Something went wrong. Sorry!");
+    }
+        ((DefaultListModel) Entries.getModel()).addElement(res.getName());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void EntriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EntriesMouseClicked
+        
+
+    }//GEN-LAST:event_EntriesMouseClicked
+
+    private void EntriesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_EntriesValueChanged
+        
+        if (Entries.getSelectedIndex()!=-1){
+            selected = array.get(Entries.getSelectedIndex());
+        }
+    }//GEN-LAST:event_EntriesValueChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try{
+            BufferedReader rdr = new BufferedReader(new FileReader(f));
+            Restaurant r = null;
+
+            String line;
+            while ((line = rdr.readLine()) != null) {
+                String[] str = line.split("[\t]+");
+                String rname = str[0];
+                String address = str[1];
+                int rate = Integer.parseInt(str[2]);
+                String review = str[3];
+
+        
+            try {
+                    r = new Restaurant(rname, address, review, rate);
+                    restaurants.add(r);
+
+                    for (int i=0; i<array.size();i++){
+                    System.out.println(r.toString());
+                    }
+
+                } catch (MyException exc) {
+                    Old.setText("Invalid rating.");
+                }
+            }
+        
+        String name=selected;
+        
+            for (Restaurant restaurant : restaurants) {
+                if (restaurant.getName().equals(name)) {
+                    Integer rate = restaurant.getRating();
+                    Old.setText("Your review:");
+                    Name.setText(restaurant.getName());
+                    Address.setText(restaurant.getAddress());
+                    Rating.setText(Integer.toString(rate));
+                    Comments.setText(restaurant.getReview());
+                }
+            }
+        }catch (Exception ex){
+                Old.setText("Invalid rating");}
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,7 +339,14 @@ public class RestaurantReviewer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Address;
+    private javax.swing.JTextField Comments;
+    private javax.swing.JList Entries;
+    private javax.swing.JTextField Name;
+    private javax.swing.JLabel Old;
+    private javax.swing.JTextField Rating;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -224,11 +355,7 @@ public class RestaurantReviewer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList jList1;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
