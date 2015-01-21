@@ -10,7 +10,7 @@ import java.util.*;
 
 
 /**
- *
+ * Restaurant class with properties and get methods, contsructor initializes and checks rate.
  * @author aferris17
  */
 public class Restaurant {

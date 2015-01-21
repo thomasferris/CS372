@@ -10,7 +10,7 @@ import java.io.*;
 import javax.swing.*;
 
 /**
- *
+ * User can enter a new restaurant review as well as see old reviews.
  * @author aferris17
  */
 public class RestaurantReviewer extends javax.swing.JFrame {
