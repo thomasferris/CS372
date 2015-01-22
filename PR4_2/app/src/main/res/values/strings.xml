@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PR4_2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Heads_or_Tails">Heads or tails?</string>
+    <string name="Tails">Tails</string>
+    <string name="Heads">Heads</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
