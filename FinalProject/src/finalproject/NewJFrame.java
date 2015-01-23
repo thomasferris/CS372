@@ -1,5 +1,13 @@
 package finalproject;
 
+import java.util.*;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import javax.swing.*;
+import java.lang.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,12 +19,51 @@ package finalproject;
  * @author aferris17
  */
 public class NewJFrame extends javax.swing.JFrame {
+    
+    File f = new File("C:\\Users\\aferris17\\Documents\\Geometry.txt");
+    
+    
+    public JPanel shapes = new Shapes();
+    
+    
+   
+    
+    Ellipse ell = null;
+    Triangle tri = null;
+    Rectangle rec = null;
+    
+    Cone cone = null;
+    EllipticalCyl ellC = null;
+    RectPrism RecP = null;
+    Sphere sph = null;
+    SquarePyr squP = null;
+    
+    String shapeType = "";
 
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame() {
         initComponents();
+        //shapes.setBackground(Color.yellow);
+        
+        OldCalc.setVisible(false);
+        NewCalc.setVisible(false);
+        Ellipse.setVisible(false);
+        Rectangle.setVisible(false);
+        Triangle.setVisible(false);
+        ElliptCyl.setVisible(false);
+        RectPrism.setVisible(false);
+        Sphere.setVisible(false);
+        SquarePyr.setVisible(false);
+        Cone.setVisible(false);
+        jTextField1.setVisible(false);
+        jTextField2.setVisible(false);
+        jTextField3.setVisible(false);
+        Area.setVisible(false);
+        Perim.setVisible(false);
+        Calc.setVisible(false);
+       
     }
 
     /**
@@ -28,63 +75,592 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Username = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        SubmitButton = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
+        OldCalc = new javax.swing.JButton();
+        NewCalc = new javax.swing.JButton();
+        Ellipse = new javax.swing.JButton();
+        Rectangle = new javax.swing.JButton();
+        Triangle = new javax.swing.JButton();
+        ElliptCyl = new javax.swing.JButton();
+        RectPrism = new javax.swing.JButton();
+        Sphere = new javax.swing.JButton();
+        SquarePyr = new javax.swing.JButton();
+        Cone = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        Area = new javax.swing.JLabel();
+        Perim = new javax.swing.JLabel();
+        Calc = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        Square = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Geometry Helper");
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        SubmitButton.setText("Submit");
+        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SubmitButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Username:");
+        nameLabel.setText("Username:");
+
+        OldCalc.setText("View my old Calculations");
+        OldCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OldCalcActionPerformed(evt);
+            }
+        });
+
+        NewCalc.setText("Make new Calculation");
+        NewCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewCalcActionPerformed(evt);
+            }
+        });
+
+        Ellipse.setText("Ellipse");
+        Ellipse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EllipseActionPerformed(evt);
+            }
+        });
+
+        Rectangle.setText("Rectangle");
+        Rectangle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RectangleActionPerformed(evt);
+            }
+        });
+
+        Triangle.setText("Triangle");
+        Triangle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TriangleActionPerformed(evt);
+            }
+        });
+
+        ElliptCyl.setText("Elliptical Cylinder");
+        ElliptCyl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ElliptCylActionPerformed(evt);
+            }
+        });
+
+        RectPrism.setText("Rectangular Prism");
+        RectPrism.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RectPrismActionPerformed(evt);
+            }
+        });
+
+        Sphere.setText("Sphere");
+        Sphere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SphereActionPerformed(evt);
+            }
+        });
+
+        SquarePyr.setText("Rectangular Pyramid");
+        SquarePyr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SquarePyrActionPerformed(evt);
+            }
+        });
+
+        Cone.setText("Cone");
+        Cone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConeActionPerformed(evt);
+            }
+        });
+
+        Area.setText("jLabel6");
+
+        Perim.setText("jLabel6");
+
+        Calc.setText("Calculate!");
+        Calc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalcActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Circle");
+
+        Square.setText("Square");
+        Square.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SquareActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30)
-                        .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Ellipse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(NewCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ElliptCyl)
+                                    .addComponent(Square))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(OldCalc, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel3))
+                                        .addGap(16, 16, 16)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(16, 16, 16))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SquarePyr)
+                                    .addComponent(Cone))
+                                .addGap(26, 26, 26)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(37, 37, 37)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Area))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(43, 43, 43)
+                                        .addComponent(Perim)))
+                                .addGap(17, 17, 17))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Calc))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Triangle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nameLabel)
+                                .addGap(30, 30, 30)
+                                .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Rectangle)
+                                    .addComponent(RectPrism)
+                                    .addComponent(Sphere)
+                                    .addComponent(jButton1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(36, 36, 36)
-                        .addComponent(jButton1)
-                        .addGap(53, 53, 53))))
+                        .addComponent(SubmitButton)))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(84, 84, 84)
+                .addGap(14, 14, 14)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Rectangle)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SubmitButton)
+                        .addComponent(nameLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(Triangle)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel2))
-                .addContainerGap(160, Short.MAX_VALUE))
+                    .addComponent(OldCalc)
+                    .addComponent(Square))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NewCalc)
+                    .addComponent(Ellipse))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(Calc))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(SquarePyr)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Cone)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ElliptCyl)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RectPrism)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Sphere)
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Area)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Perim))
+                                    .addComponent(jLabel5))
+                                .addGap(88, 88, 88))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    private void changePanel(JPanel panel){
+        getContentPane().removeAll();
+        getContentPane().add(panel, BorderLayout.CENTER);
+        getContentPane().doLayout();
+        update(getGraphics());
+    }
+    
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         String s = Username.getText();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //changePanel(shapes);
+
+        
+        Username.setVisible(false);
+        SubmitButton.setVisible(false);
+        nameLabel.setText("");
+        
+        OldCalc.setVisible(true);
+        NewCalc.setVisible(true);
+        
+        
+
+    }//GEN-LAST:event_SubmitButtonActionPerformed
+
+    private void NewCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewCalcActionPerformed
+        OldCalc.setVisible(false);
+        NewCalc.setVisible(false);
+        
+        Ellipse.setVisible(true);
+        Rectangle.setVisible(true);
+        Triangle.setVisible(true);
+        ElliptCyl.setVisible(true);
+        RectPrism.setVisible(true);
+        Sphere.setVisible(true);
+        SquarePyr.setVisible(true);
+        Cone.setVisible(true);
+        
+    }//GEN-LAST:event_NewCalcActionPerformed
+
+    private void EllipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EllipseActionPerformed
+        jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        Calc.setVisible(true);
+       
+        jLabel2.setText("radius 1:");
+        jLabel3.setText("radius 2:");
+        
+        shapeType = "ellipse";
+        
+    }//GEN-LAST:event_EllipseActionPerformed
+
+    private void CalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcActionPerformed
+        Area.setVisible(true);
+        Perim.setVisible(true);
+        
+        String p, a;
+        
+        if (shapeType.equals("ellipse")) {
+
+            try {
+                ell = new Ellipse(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField2.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p=String.format("Perimeter: %.2f",ell.getPerimeter());
+            a=String.format("Area: %.2f", ell.getArea());
+            Perim.setText(p);
+            Area.setText(a);
+        }
+        if (shapeType.equals("triangle")) {
+            try{
+            tri = new Triangle (Integer.parseInt(jTextField1.getText()),
+                    Integer.parseInt(jTextField2.getText()),
+                    Integer.parseInt(jTextField3.getText()));
+            
+                }catch (MyException e){};
+            Perim.setText(Double.toString(tri.getPerimeter()));
+            Area.setText(Double.toString(tri.getArea()));
+        }
+        if (shapeType.equals("rectangle")) {
+            try {
+                rec = new Rectangle(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField2.getText()));
+
+            } catch (MyException e) {
+            };
+            Perim.setText(Double.toString(rec.getPerimeter()));
+            Area.setText(Double.toString(rec.getArea()));
+        }
+        if (shapeType.equals("squarePyr")) {
+            try{
+            squP = new SquarePyr (Integer.parseInt(jTextField1.getText()),
+                    Integer.parseInt(jTextField2.getText()),
+                    Integer.parseInt(jTextField3.getText()));
+            
+                }catch (MyException e){};
+            Perim.setText(Double.toString(squP.getSurfaceArea()));
+            Area.setText(Double.toString(squP.getVolume()));
+        }
+        if (shapeType.equals("cone")) {
+            try{
+            cone = new Cone (Integer.parseInt(jTextField1.getText()),
+                    Integer.parseInt(jTextField2.getText()));
+            
+                }catch (MyException e){};
+            Perim.setText(Double.toString(cone.getSurfaceArea()));
+            Area.setText(Double.toString(cone.getVolume()));
+        }
+        if (shapeType.equals("EllCyl")) {
+            try{
+            ellC = new EllipticalCyl (Integer.parseInt(jTextField1.getText()),
+                    Integer.parseInt(jTextField2.getText()),
+                    Integer.parseInt(jTextField3.getText()));
+            
+                }catch (MyException e){};
+            Perim.setText(Double.toString(ellC.getSurfaceArea()));
+            Area.setText(Double.toString(ellC.getVolume()));
+        }
+        if (shapeType.equals("RectPrism")) {
+            try{
+            RecP = new RectPrism (Integer.parseInt(jTextField1.getText()),
+                    Integer.parseInt(jTextField2.getText()),
+                    Integer.parseInt(jTextField3.getText()));
+            
+                }catch (MyException e){};
+            Perim.setText(Double.toString(RecP.getSurfaceArea()));
+            Area.setText(Double.toString(RecP.getVolume()));
+        }
+        if (shapeType.equals("Sphere")) {
+            try{
+            sph = new Sphere (Integer.parseInt(jTextField1.getText()));
+            
+                }catch (MyException e){};
+
+            Perim.setText(Double.toString(sph.getSurfaceArea()));
+            Area.setText(Double.toString(sph.getVolume()));
+        } 
+        /*else {
+            Perim.setText("No shape was initialized");
+        }*/
+    }//GEN-LAST:event_CalcActionPerformed
+
+    private void RectangleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RectangleActionPerformed
+         jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        Calc.setVisible(true);
+        
+        jLabel2.setText("Length:");
+        jLabel3.setText("Width:");
+        
+        shapeType = "rectangle";
+    }//GEN-LAST:event_RectangleActionPerformed
+
+    private void TriangleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TriangleActionPerformed
+         jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        jTextField3.setVisible(true);
+        Calc.setVisible(true);
+        
+        jLabel2.setText("Side 1:");
+        jLabel3.setText("Side 2:");
+        jLabel4.setText("Side 4:");
+        
+        shapeType = "triangle";
+    }//GEN-LAST:event_TriangleActionPerformed
+
+    private void ConeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConeActionPerformed
+        jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        Calc.setVisible(true);
+        
+        jLabel2.setText("Radius:");
+        jLabel3.setText("Height:");
+        
+        shapeType = "cone";
+        
+    }//GEN-LAST:event_ConeActionPerformed
+
+    private void ElliptCylActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElliptCylActionPerformed
+        jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        jTextField3.setVisible(true);
+        Calc.setVisible(true);
+        
+        jLabel2.setText("Radius 1:");
+        jLabel3.setText("Radius 2:");
+        jLabel4.setText("Height:");
+        
+        shapeType = "EllCyl";
+       
+    }//GEN-LAST:event_ElliptCylActionPerformed
+
+    private void RectPrismActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RectPrismActionPerformed
+        jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        jTextField3.setVisible(true);
+        Calc.setVisible(true);
+
+        jLabel2.setText("Length:");
+        jLabel3.setText("Width:");
+        jLabel4.setText("Height:");
+        
+        shapeType = "RectPrism";
+        
+    }//GEN-LAST:event_RectPrismActionPerformed
+
+    private void SphereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SphereActionPerformed
+        jTextField1.setVisible(true);
+        Calc.setVisible(true);
+
+        jLabel2.setText("Radius:");
+        
+        shapeType = "Sphere";
+        
+    }//GEN-LAST:event_SphereActionPerformed
+
+    private void SquarePyrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SquarePyrActionPerformed
+        jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        jTextField3.setVisible(true);
+        Calc.setVisible(true);
+        
+        jLabel2.setText("Length:");
+        jLabel3.setText("Width:");
+        jLabel4.setText("Height:");
+        shapeType = "SquarePyr";
+    }//GEN-LAST:event_SquarePyrActionPerformed
+
+    private void SquareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SquareActionPerformed
+         jTextField1.setVisible(true);
+        
+        Calc.setVisible(true);
+        
+        jLabel2.setText("Side:");
+        
+        
+        shapeType = "rectangle";
+    }//GEN-LAST:event_SquareActionPerformed
+
+    private void OldCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldCalcActionPerformed
+        this.add(shapes);
+        //jList list = shapes.jList1;
+        //((DefaultListModel)list.getModel()).add(String u);
+        BufferedReader rdr = null;
+
+        try {
+            rdr = new BufferedReader(new FileReader(f));
+            String line;
+            while ((line = rdr.readLine()) != null) {
+                //for (int i=0;i<)
+                String[] str = line.split("[\t]+");
+                String username=str[0];
+                String entry = str[1];
+                if (username.equals(Username.getText())){
+                    
+                }
+            }
+            rdr.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Area.setText("Something went wrong. Sorry!");
+        }
+    }//GEN-LAST:event_OldCalcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,9 +698,34 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Area;
+    private javax.swing.JButton Calc;
+    private javax.swing.JButton Cone;
+    private javax.swing.JButton Ellipse;
+    private javax.swing.JButton ElliptCyl;
+    private javax.swing.JButton NewCalc;
+    private javax.swing.JButton OldCalc;
+    private javax.swing.JLabel Perim;
+    private javax.swing.JButton RectPrism;
+    private javax.swing.JButton Rectangle;
+    private javax.swing.JButton Sphere;
+    private javax.swing.JButton Square;
+    private javax.swing.JButton SquarePyr;
+    private javax.swing.JButton SubmitButton;
+    private javax.swing.JButton Triangle;
     private javax.swing.JTextField Username;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 }
