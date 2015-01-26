@@ -201,7 +201,8 @@ public class EventManager extends javax.swing.JFrame {
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
          
-        File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
+        //PT -- You don't need the full path here.
+        File f = new File("Events.txt");
        
 
         int month = Integer.parseInt(Month.getText());
@@ -243,7 +244,7 @@ public class EventManager extends javax.swing.JFrame {
 
         
         
-        File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
+        File f = new File("Events.txt");
 
         BufferedReader rdr = null;
 
@@ -295,7 +296,7 @@ public class EventManager extends javax.swing.JFrame {
         ((DefaultListModel) View.getModel()).clear();
         array.clear();
         
-        File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
+        File f = new File("Events.txt");
 
         BufferedReader rdr = null;
         
@@ -348,7 +349,7 @@ public class EventManager extends javax.swing.JFrame {
         ((DefaultListModel) View.getModel()).clear();
         array.clear();
         
-        File f = new File("C:\\Users\\aferris17\\Documents\\Events.txt");
+        File f = new File("Events.txt");
 
         BufferedReader rdr = null;
         
@@ -361,6 +362,7 @@ public class EventManager extends javax.swing.JFrame {
             String line;
             while ((line = rdr.readLine()) != null) {
 
+                //PT -- cool, regex!
                 String[] str = line.split("[\\p{Punct}\\s]+");
                 int month = Integer.parseInt(str[0]);
                 int date = Integer.parseInt(str[1]);

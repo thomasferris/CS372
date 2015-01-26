@@ -14,6 +14,10 @@ import java.util.*;
 public class Calculate {
     Calculate (){}; 
     
+    //PT -- need javadoc. -2
+    //Also, since these functions only use get and size, your parameter could
+    //  just be List<Integer>, and then you'd be able to use your function
+    //  with many kinds of collections, not jsut ArrayList
     public int min (ArrayList<Integer> array){
         int temp = array.get(0);
         for (int i=1; i<array.size();i++){

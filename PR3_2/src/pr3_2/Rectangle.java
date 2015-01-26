@@ -21,6 +21,7 @@ public class Rectangle extends Shape{
         _h = height;
                 };
     
+    //PT -- need javadoc. -2
     public double getArea (){
         return _w * _h;
     }

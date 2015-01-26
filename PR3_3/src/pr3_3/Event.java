@@ -40,7 +40,7 @@ public class Event {
         _date = date;
         _year = year;
     }
-    
+    //PT -- need javadoc. -2
     public String getName(){
         return _name;
     }
