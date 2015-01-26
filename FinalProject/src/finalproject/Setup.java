@@ -4,18 +4,12 @@
  * and open the template in the editor.
  */
 
+package finalproject;
+
 /**
  *
  * @author aferris17
  */
-public class TwoD {
+public class Setup {
     
-    public double getArea() {
-        return 0;
-    }
-
-    public double getPerimeter() {
-        return 0;
-    }
-
 }
