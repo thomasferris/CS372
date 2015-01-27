@@ -9,12 +9,15 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * Images class manages images and selects the proper import from the string parameter
  * @author aferris17
  */
 public class Images {
     private String selected;
     private ImageIcon image = null;
+    
+    public Images (){}
+    
     public ImageIcon setImage(String selected){
         if (selected.equals("Circle")){
             image = new ImageIcon(Images.class.getResource("/newpackage/Circle.jpg"));

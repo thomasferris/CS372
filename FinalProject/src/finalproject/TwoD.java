@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * ThreeD, base class for the three dimensional shapes
  * @author aferris17
  */
 public class TwoD {

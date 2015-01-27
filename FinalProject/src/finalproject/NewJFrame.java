@@ -440,7 +440,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
     
     
-    /**/
+    /*
+    *Calculation button initializes the shape and outputs the values in labels
+    */
     private void CalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcActionPerformed
         visibility.Visible(Area, Perim);
         String p, a;
@@ -452,7 +454,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField2.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Perimeter: %.2f", ell.getPerimeter());
@@ -466,7 +468,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField3.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions are not valid.");
                 Perim.setText("");
             };
             p = String.format("Perimeter: %.2f", tri.getPerimeter());
@@ -479,7 +481,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField2.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Perimeter: %.2f", rec.getPerimeter());
@@ -493,7 +495,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField3.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Surface Area: %.2f", squP.getSurfaceArea());
@@ -506,7 +508,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField2.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Surface Area: %.2f", cone.getSurfaceArea());
@@ -520,7 +522,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField3.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Surface Area: %.2f", ellC.getSurfaceArea());
@@ -534,7 +536,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField3.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Surface Area: %.2f", RecP.getSurfaceArea());
@@ -546,7 +548,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 sph = new Sphere(Integer.parseInt(jTextField1.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Surface Area: %.2f", sph.getSurfaceArea());
@@ -559,7 +561,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField1.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Perimeter: %.2f", ell.getPerimeter());
@@ -572,7 +574,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         Integer.parseInt(jTextField1.getText()));
 
             } catch (MyException e) {
-                Area.setText("Something went wrong");
+                Area.setText("Dimensions must be >0.");
                 Perim.setText("");
             };
             p = String.format("Perimeter: %.2f", rec.getPerimeter());

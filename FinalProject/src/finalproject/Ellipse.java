@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * Ellipse class to initialize with radius1 and radius2 or throw MyException
  * @author aferris17
  */
 public class Ellipse extends TwoD{

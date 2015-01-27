@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * Rectangle class, initialize with with and height
  * @author aferris17
  */
 public class Rectangle extends TwoD{

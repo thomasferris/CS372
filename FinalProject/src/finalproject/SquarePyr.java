@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * Square Pyramid class, parameters length, width, height.
  * @author aferris17
  */
 public class SquarePyr extends ThreeD{

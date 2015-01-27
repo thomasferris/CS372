@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * MyException to be thrown with invalid entry.
  * @author aferris17
  */
 public class MyException extends Throwable{

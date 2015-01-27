@@ -8,7 +8,8 @@ package finalproject;
 import java.awt.*;
 
 /**
- * 
+ * Visibility allows the program to set any component in the jFrame to visible or invisble
+ * using a list of components.
  * @author aferris17
  */
 public class Visibility {

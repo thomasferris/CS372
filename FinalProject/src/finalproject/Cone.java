@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * Cone class to initialize cone with radius and height or throw MyException
  * @author aferris17
  */
 public class Cone extends ThreeD {

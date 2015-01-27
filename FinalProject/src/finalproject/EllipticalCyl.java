@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * Elliptical Cylinder class to initialize with radii and height or throw MyException
  * @author aferris17
  */
 public class EllipticalCyl extends ThreeD{

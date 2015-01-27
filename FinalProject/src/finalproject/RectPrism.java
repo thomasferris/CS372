@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * Rectangular Prism Class, initializes object with width, length, height.
  * @author aferris17
  */
 public class RectPrism extends ThreeD {

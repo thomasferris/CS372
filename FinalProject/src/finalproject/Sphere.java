@@ -7,7 +7,7 @@ package finalproject;
  */
 
 /**
- *
+ * Sphere, constructor takes in radius
  * @author aferris17
  */
 public class Sphere extends ThreeD {
