@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 public class NewJFrame extends javax.swing.JFrame {
     
     File f = new File("C:\\Users\\aferris17\\Documents\\Geometry.txt");
+    
     //File f = new File ("Geometry.txt");
         
    
@@ -42,39 +43,19 @@ public class NewJFrame extends javax.swing.JFrame {
     ArrayList<String> array = new ArrayList<String>();
     ArrayList<String> shapeArray = new ArrayList<String>(Arrays.asList("Circle","Rectangle", "Triangle","Square","Ellipse",
     "Rectangular Pyramid","Cone","Elliptical Cylinder","Rectangular Prism","Sphere"));
-    
+    Visibility visibility;
 
     /**
      * Creates new form NewJFrame
      * Sets many components to invisible, to be visible later.
      */
     public NewJFrame() {
+        this.visibility = new Visibility();
         initComponents();
+        visibility.Invisible(OldCalc,NewCalc,jTextField1,jTextField2,
+                jTextField3,Area,Perim,Calc,options,jScrollPane1,
+                OldList,jScrollPane2,jLabel9,listLabel,Logout,BackButton);
                 
-        OldCalc.setVisible(false);
-        NewCalc.setVisible(false);
-        
-        jTextField1.setVisible(false);
-        jTextField2.setVisible(false);
-        jTextField3.setVisible(false);
-        Area.setVisible(false);
-        Perim.setVisible(false);
-        Calc.setVisible(false);
-        options.setVisible(false);
-        jScrollPane1.setVisible(false);
-        OldList.setVisible(false);
-        jScrollPane2.setVisible(false);
-        
-        /*Circle.setVisible(false);
-        Cone.setVisible(false);
-        Ellipse.setVisible(false);
-        Rectangle.setVisible(false);
-        Triangle.setVisible(false);
-        RectangularPrism.setVisible(false);
-        RectangularPyramid.setVisible(false);
-        EllipticalCylinder.setVisible(false);
-        Square.setVisible(false);
-        Sphere.setVisible(false);*/
     }
 
     /**
@@ -89,32 +70,37 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        OldCalc = new javax.swing.JButton();
-        NewCalc = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        Area = new javax.swing.JLabel();
-        Perim = new javax.swing.JLabel();
         Calc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         options = new javax.swing.JList();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        OldList = new javax.swing.JList();
         jLabel9 = new javax.swing.JLabel();
         LoginPane = new javax.swing.JLayeredPane();
         jPanel3 = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
         Username = new javax.swing.JTextField();
         SubmitButton = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        Choice = new javax.swing.JPanel();
+        OldCalc = new javax.swing.JButton();
+        NewCalc = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        OldList = new javax.swing.JList();
+        Results = new javax.swing.JLayeredPane();
+        Area = new javax.swing.JLabel();
+        Perim = new javax.swing.JLabel();
+        listLabel = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,28 +126,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Felix Titling", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Geometry Helper");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        OldCalc.setText("View my old Calculations");
-        OldCalc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldCalcActionPerformed(evt);
-            }
-        });
-
-        NewCalc.setText("Make new Calculation");
-        NewCalc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NewCalcActionPerformed(evt);
-            }
-        });
-
-        Area.setText("jLabel6");
-
-        Perim.setText("jLabel6");
 
         Calc.setText("Calculate!");
         Calc.addActionListener(new java.awt.event.ActionListener() {
@@ -182,15 +150,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(options);
 
-        OldList.setModel(new DefaultListModel<String>(){
-            public int getSize(){return array.size();}
-            public String getElementAt(int i){return array.get(i);}
-            public void addElement(String f){super.addElement(f);array.add(f);}
-            public void add(int i, String f){super.add(i,f);array.add(i,f);}
-        });
-        jScrollPane2.setViewportView(OldList);
-
-        jLabel9.setText("jLabel9");
+        jLabel9.setText(" ");
 
         nameLabel.setText("Username:");
 
@@ -221,169 +181,258 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SubmitButton)
-                    .addComponent(nameLabel))
-                .addContainerGap())
+                    .addComponent(nameLabel)))
         );
 
         javax.swing.GroupLayout LoginPaneLayout = new javax.swing.GroupLayout(LoginPane);
         LoginPane.setLayout(LoginPaneLayout);
         LoginPaneLayout.setHorizontalGroup(
             LoginPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LoginPaneLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         LoginPaneLayout.setVerticalGroup(
             LoginPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LoginPaneLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(41, 41, 41))
         );
         LoginPane.setLayer(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel7.setText("    ");
+        OldCalc.setText("View my old Calculations");
+        OldCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OldCalcActionPerformed(evt);
+            }
+        });
+
+        NewCalc.setText("Make new Calculation");
+        NewCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewCalcActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ChoiceLayout = new javax.swing.GroupLayout(Choice);
+        Choice.setLayout(ChoiceLayout);
+        ChoiceLayout.setHorizontalGroup(
+            ChoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ChoiceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ChoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NewCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OldCalc))
+                .addContainerGap())
+        );
+        ChoiceLayout.setVerticalGroup(
+            ChoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ChoiceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(OldCalc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NewCalc)
+                .addContainerGap())
+        );
+
+        OldList.setModel(new DefaultListModel<String>(){
+            public int getSize(){return array.size();}
+            public String getElementAt(int i){return array.get(i);}
+            public void addElement(String f){super.addElement(f);array.add(f);}
+            public void add(int i, String f){super.add(i,f);array.add(i,f);}
+            public void clear(){super.clear();array.clear();}
+
+        });
+        jScrollPane2.setViewportView(OldList);
+
+        Area.setText("jLabel6");
+
+        Perim.setText("jLabel6");
+
+        javax.swing.GroupLayout ResultsLayout = new javax.swing.GroupLayout(Results);
+        Results.setLayout(ResultsLayout);
+        ResultsLayout.setHorizontalGroup(
+            ResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResultsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Perim)
+                    .addComponent(Area))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        ResultsLayout.setVerticalGroup(
+            ResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResultsLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(Area)
+                .addGap(18, 18, 18)
+                .addComponent(Perim)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Results.setLayer(Area, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Results.setLayer(Perim, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        listLabel.setText("jLabel10");
+
+        BackButton.setText("Go Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+
+        Logout.setText("Logout");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("   ");
 
+        jLabel7.setText("    ");
+
         jLabel8.setText("    ");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(187, 187, 187)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(OldCalc)
-                                            .addComponent(NewCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(73, 73, 73)
-                                        .addComponent(Calc))
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(68, 68, 68)
-                                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(jLabel9)
-                                .addGap(329, 329, 329)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Area)
-                                    .addComponent(Perim))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(502, 502, 502)
+                        .addComponent(Results, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(LoginPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(listLabel))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(0, 652, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(242, 242, 242))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(LoginPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGap(112, 112, 112)
+                            .addComponent(jLabel9))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(340, 340, 340)
+                            .addComponent(Calc))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(Logout)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BackButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(113, 113, 113)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Choice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Logout)
+                    .addComponent(BackButton))
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(9, 9, 9))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LoginPane, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                                        .addComponent(Calc)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(LoginPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(OldCalc)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(NewCalc)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(14, 14, 14))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Area)
-                                                .addGap(12, 12, 12)
-                                                .addComponent(Perim))
-                                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(56, 56, 56)
+                                .addComponent(listLabel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(122, 122, 122))
+                                .addComponent(Choice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(Results, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(143, 143, 143)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addGap(126, 126, 126)
-                                .addComponent(jLabel4)
-                                .addContainerGap(51, Short.MAX_VALUE))))))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)))))
+                .addComponent(Calc)
+                .addGap(118, 118, 118)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel9))
+                .addGap(118, 118, 118)
+                .addComponent(jLabel4)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -391,36 +440,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
     
     
-    
-    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
-        s = Username.getText();
-        
-        LoginPane.setVisible(false);
-        /*Username.setVisible(false);
-        SubmitButton.setVisible(false);
-        nameLabel.setText("");*/
-        
-        OldCalc.setVisible(true);
-        NewCalc.setVisible(true);
-        
-        
-
-    }//GEN-LAST:event_SubmitButtonActionPerformed
-
-    private void NewCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewCalcActionPerformed
-        OldCalc.setVisible(false);
-        NewCalc.setVisible(false);
-        
-        options.setVisible(true);
-        jScrollPane1.setVisible(true);
-    }//GEN-LAST:event_NewCalcActionPerformed
-/**/
+    /**/
     private void CalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcActionPerformed
-        Area.setVisible(true);
-        Perim.setVisible(true);
-        
+        visibility.Visible(Area, Perim);
         String p, a;
-        
+
         if (selected.equals("Ellipse")) {
 
             try {
@@ -431,252 +455,285 @@ public class NewJFrame extends javax.swing.JFrame {
                 Area.setText("Something went wrong");
                 Perim.setText("");
             };
-            p=String.format("Perimeter: %.2f",ell.getPerimeter());
-            a=String.format("Area: %.2f", ell.getArea());
+            p = String.format("Perimeter: %.2f", ell.getPerimeter());
+            a = String.format("Area: %.2f", ell.getArea());
             Perim.setText(p);
             Area.setText(a);
-        }
-        else if (selected.equals("Triangle")) {
-            try{
-            tri = new Triangle (Integer.parseInt(jTextField1.getText()),
-                    Integer.parseInt(jTextField2.getText()),
-                    Integer.parseInt(jTextField3.getText()));
-            
-                }catch (MyException e){
-                   Area.setText("Something went wrong");
-                Perim.setText("");};
-            p=String.format("Perimeter: %.2f",tri.getPerimeter());
-            a=String.format("Area: %.2f", tri.getArea());
+        } else if (selected.equals("Triangle")) {
+            try {
+                tri = new Triangle(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField2.getText()),
+                        Integer.parseInt(jTextField3.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p = String.format("Perimeter: %.2f", tri.getPerimeter());
+            a = String.format("Area: %.2f", tri.getArea());
             Perim.setText(p);
             Area.setText(a);
-        }
-        else if (selected.equals("Rectangle")) {
+        } else if (selected.equals("Rectangle")) {
             try {
                 rec = new Rectangle(Integer.parseInt(jTextField1.getText()),
                         Integer.parseInt(jTextField2.getText()));
 
             } catch (MyException e) {
-             Area.setText("Something went wrong");
-                Perim.setText("");};
-            p=String.format("Perimeter: %.2f",rec.getPerimeter());
-            a=String.format("Area: %.2f", rec.getArea());
-            Perim.setText(p);
-            Area.setText(a);
-        }
-        else if (selected.equals("Square Pyramid")) {
-            try{
-            squP = new SquarePyr (Integer.parseInt(jTextField1.getText()),
-                    Integer.parseInt(jTextField2.getText()),
-                    Integer.parseInt(jTextField3.getText()));
-            
-                }catch (MyException e){ Area.setText("Something went wrong");
-                Perim.setText("");};
-            p=String.format("Perimeter: %.2f",squP.getSurfaceArea());
-            a=String.format("Area: %.2f", squP.getVolume());
-            Perim.setText(p);
-            Area.setText(a);
-        }
-        else if (selected.equals("Cone")) {
-            try{
-            cone = new Cone (Integer.parseInt(jTextField1.getText()),
-                    Integer.parseInt(jTextField2.getText()));
-            
-                }catch (MyException e){Area.setText("Something went wrong");
-                Perim.setText("");};
-            p=String.format("Perimeter: %.2f",cone.getSurfaceArea());
-            a=String.format("Area: %.2f", cone.getVolume());
-            Perim.setText(p);
-            Area.setText(a);
-        }
-        else if (selected.equals("Elliptical Cylinder")) {
-            try{
-            ellC = new EllipticalCyl (Integer.parseInt(jTextField1.getText()),
-                    Integer.parseInt(jTextField2.getText()),
-                    Integer.parseInt(jTextField3.getText()));
-            
-                }catch (MyException e){Area.setText("Something went wrong");
-                Perim.setText("");};
-            p=String.format("Perimeter: %.2f",ellC.getSurfaceArea());
-            a=String.format("Area: %.2f", ellC.getVolume());
-            Perim.setText(p);
-            Area.setText(a);
-        }
-        else if (selected.equals("Rectangular Prism")) {
-            try{
-            RecP = new RectPrism (Integer.parseInt(jTextField1.getText()),
-                    Integer.parseInt(jTextField2.getText()),
-                    Integer.parseInt(jTextField3.getText()));
-            
-                }catch (MyException e){Area.setText("Something went wrong");
-                Perim.setText("");};
-            p=String.format("Perimeter: %.2f",RecP.getSurfaceArea());
-            a=String.format("Area: %.2f", RecP.getVolume());
-            Perim.setText(p);
-            Area.setText(a);
-        }
-        else if (selected.equals("Sphere")) {
-            try{
-            sph = new Sphere (Integer.parseInt(jTextField1.getText()));
-            
-                }catch (MyException e){Area.setText("Something went wrong");
-                Perim.setText("");};
-            p=String.format("Perimeter: %.2f",sph.getSurfaceArea());
-            a=String.format("Area: %.2f", sph.getVolume());
-            Perim.setText(p);
-            Area.setText(a);
-        } 
-        else if (selected.equals("Circle")) {
-            try{
-            ell = new Ellipse (Integer.parseInt(jTextField1.getText()), 
-                    Integer.parseInt(jTextField1.getText()));
-            
-                }catch (MyException e){Area.setText("Something went wrong");
+                Area.setText("Something went wrong");
                 Perim.setText("");
             };
-            p=String.format("Perimeter: %.2f",ell.getPerimeter());
-            a=String.format("Area: %.2f", ell.getArea());
+            p = String.format("Perimeter: %.2f", rec.getPerimeter());
+            a = String.format("Area: %.2f", rec.getArea());
             Perim.setText(p);
             Area.setText(a);
-        } 
-        else if (selected.equals("Square")) {
+        } else if (selected.equals("Rectangular Pyramid")) {
+            try {
+                squP = new SquarePyr(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField2.getText()),
+                        Integer.parseInt(jTextField3.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p = String.format("Surface Area: %.2f", squP.getSurfaceArea());
+            a = String.format("Volume: %.2f", squP.getVolume());
+            Perim.setText(p);
+            Area.setText(a);
+        } else if (selected.equals("Cone")) {
+            try {
+                cone = new Cone(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField2.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p = String.format("Surface Area: %.2f", cone.getSurfaceArea());
+            a = String.format("Volume: %.2f", cone.getVolume());
+            Perim.setText(p);
+            Area.setText(a);
+        } else if (selected.equals("Elliptical Cylinder")) {
+            try {
+                ellC = new EllipticalCyl(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField2.getText()),
+                        Integer.parseInt(jTextField3.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p = String.format("Surface Area: %.2f", ellC.getSurfaceArea());
+            a = String.format("Volume: %.2f", ellC.getVolume());
+            Perim.setText(p);
+            Area.setText(a);
+        } else if (selected.equals("Rectangular Prism")) {
+            try {
+                RecP = new RectPrism(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField2.getText()),
+                        Integer.parseInt(jTextField3.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p = String.format("Surface Area: %.2f", RecP.getSurfaceArea());
+            a = String.format("Volume: %.2f", RecP.getVolume());
+            Perim.setText(p);
+            Area.setText(a);
+        } else if (selected.equals("Sphere")) {
+            try {
+                sph = new Sphere(Integer.parseInt(jTextField1.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p = String.format("Surface Area: %.2f", sph.getSurfaceArea());
+            a = String.format("Volume: %.2f", sph.getVolume());
+            Perim.setText(p);
+            Area.setText(a);
+        } else if (selected.equals("Circle")) {
+            try {
+                ell = new Ellipse(Integer.parseInt(jTextField1.getText()),
+                        Integer.parseInt(jTextField1.getText()));
+
+            } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
+            };
+            p = String.format("Perimeter: %.2f", ell.getPerimeter());
+            a = String.format("Area: %.2f", ell.getArea());
+            Perim.setText(p);
+            Area.setText(a);
+        } else if (selected.equals("Square")) {
             try {
                 rec = new Rectangle(Integer.parseInt(jTextField1.getText()),
                         Integer.parseInt(jTextField1.getText()));
 
             } catch (MyException e) {
+                Area.setText("Something went wrong");
+                Perim.setText("");
             };
-            Perim.setText(Double.toString(rec.getPerimeter()));
-            Area.setText(Double.toString(rec.getArea()));
-        }
-        else {
+            p = String.format("Perimeter: %.2f", rec.getPerimeter());
+            a = String.format("Area: %.2f", rec.getArea());
+            Perim.setText(p);
+            Area.setText(a);
+        } else {
             Perim.setText("No shape was initialized");
             Area.setText("");
         }
-        
-        if (!f.exists())
-            try {
-                f.createNewFile();
-        } catch (IOException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         
         BufferedWriter wrtr = null;
 
         try {
-            wrtr = new BufferedWriter(new FileWriter(f));
-            String line = String.format("%s \t %s %s %s", 
-                    s,selected, Perim.getText(),Area.getText());
+            wrtr = new BufferedWriter(new FileWriter(f,true));
+            String line = String.format("%s\t%s, %s, %s",
+                    s, selected, Perim.getText(), Area.getText());
             wrtr.write(line);
             wrtr.newLine();
             wrtr.close();
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             Perim.setText("Did not write to file");
             Area.setText("");
         }
-            
-        
+
     }//GEN-LAST:event_CalcActionPerformed
-/**/
-    private void OldCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldCalcActionPerformed
 
-        OldList.setVisible(true);
-        jScrollPane2.setVisible(true);
-        
-        BufferedReader rdr = null;
-
-        try {
-            rdr = new BufferedReader(new FileReader(f));
-            String line;
-            while ((line = rdr.readLine()) != null) {
-                String[] str = line.split("[\t]+");
-                String username=str[0];
-                String entry = str[1];
-                if (username.equals(Username.getText())){
-                    ((DefaultListModel) OldList.getModel()).addElement(entry);
-                }
-            }
-            rdr.close();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            Area.setText("Something went wrong. Sorry!");
-        }
-    }//GEN-LAST:event_OldCalcActionPerformed
 /**/
     private void optionsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_optionsValueChanged
       Images images = new Images();
         if (options.getSelectedIndex() != -1) {
             selected = shapeArray.get(options.getSelectedIndex());
-            System.out.println(selected);
-            
         }
         if (selected.equals("Circle")) {
             jLabel9.setIcon(images.setImage("Circle"));
-            jTextField1.setVisible(true);
-            Calc.setVisible(true);
+            visibility.Visible(jTextField1,Calc,jLabel9,jLabel6);
+            visibility.Invisible(jTextField2,jTextField3,jLabel7,jLabel8);
             jLabel6.setText("Radius:");
         } else if (selected.equals("Rectangle")) {
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Rectangle"));
+            visibility.Visible(jTextField1,jTextField2,Calc,jLabel9,jLabel6,jLabel7);
+            visibility.Invisible(jTextField3,jLabel8);
             jLabel6.setText("Length:");
             jLabel7.setText("Width:");
         } else if (selected.equals("Triangle")) {
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-            jTextField3.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Triangle"));
+            visibility.Visible(jTextField1,jTextField2,jTextField3,Calc,jLabel9,jLabel6,jLabel7,jLabel8);
             jLabel6.setText("Side 1:");
             jLabel7.setText("Side 2:");
             jLabel8.setText("Side 4:");
         } else if (selected.equals("Square")) {
-            jTextField1.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Square"));
+            visibility.Visible(jTextField1,Calc,jLabel6,jLabel9);
+            visibility.Invisible(jTextField2,jTextField3,jLabel7,jLabel8);
             jLabel6.setText("Side:");
         } else if (selected.equals("Ellipse")) {
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Ellipse"));
+            visibility.Visible(jTextField1,jTextField2,Calc,jLabel9,jLabel7,jLabel6);
+            visibility.Invisible(jTextField3,jLabel8);
             jLabel6.setText("radius 1:");
             jLabel7.setText("radius 2:");
         } else if (selected.equals("Rectangular Pyramid")) {
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-            jTextField3.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Rectangular Pyramid"));
+            visibility.Visible(jTextField1,jTextField2,jTextField3,Calc,jLabel9,jLabel6,jLabel7,jLabel8);
             jLabel6.setText("Length:");
             jLabel7.setText("Width:");
             jLabel8.setText("Height:");
         } else if (selected.equals("Cone")) {
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Cone"));
+            visibility.Visible(jTextField1,jTextField2,Calc,jLabel9,jLabel6,jLabel7);
+            visibility.Invisible(jTextField3,jLabel8);
             jLabel6.setText("Radius:");
             jLabel7.setText("Height:");
         } else if (selected.equals("Elliptical Cylinder")) {
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-            jTextField3.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Elliptical Cylinder"));
+            visibility.Visible(jTextField1,jTextField2,jTextField3,Calc,jLabel9,jLabel6,jLabel7,jLabel8);
             jLabel6.setText("Radius 1:");
             jLabel7.setText("Radius 2:");
             jLabel8.setText("Height:");
         } else if (selected.equals("Rectangular Prism")) {
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-            jTextField3.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Rectangular Prism"));
+            visibility.Visible(jTextField1,jTextField2,jTextField3,Calc,jLabel9,jLabel6,jLabel7,jLabel8);
             jLabel6.setText("Length:");
             jLabel7.setText("Width:");
             jLabel8.setText("Height:");
         } else if (selected.equals("Sphere")) {
-            jTextField1.setVisible(true);
-            Calc.setVisible(true);
+            jLabel9.setIcon(images.setImage("Sphere"));
+            visibility.Visible(jTextField1,Calc,jLabel9,jLabel6);
+            visibility.Invisible(jTextField2,jTextField3,jLabel7,jLabel8);
             jLabel6.setText("Radius:");
         }
         
     }//GEN-LAST:event_optionsValueChanged
+
+    private void NewCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewCalcActionPerformed
+        visibility.Invisible(OldCalc,NewCalc);
+        visibility.Visible(options,jScrollPane1,BackButton);
+
+    }//GEN-LAST:event_NewCalcActionPerformed
+
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
+        s = Username.getText();
+        if (s.equals("")) {
+            visibility.Visible(listLabel);
+            listLabel.setText("You must enter a username");
+        } else {
+            visibility.Invisible(LoginPane,listLabel);
+            visibility.Visible(OldCalc, NewCalc, Logout);
+        }
+    }//GEN-LAST:event_SubmitButtonActionPerformed
+
+    private void OldCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldCalcActionPerformed
+        ((DefaultListModel) OldList.getModel()).clear();
+        visibility.Invisible(OldCalc,NewCalc);
+        visibility.Visible(OldList,jScrollPane2,BackButton,listLabel);
+        BufferedReader rdr = null;
+        ArrayList <String> calculations = new ArrayList<String>();
+        //calculations = null;
+        
+        
+        try{
+            rdr=new BufferedReader(new FileReader(f));
+            String line;
+           while ((line = rdr.readLine()) != null) {
+
+                String[] str = line.split("[\t]+");
+                String username = str[0];
+                String entry = str[1];
+                if(s.equals(username)){
+                    calculations.add(entry);
+                }
+            }rdr.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            listLabel.setText("Something went wrong. Sorry!");
+        }
+        for (int i = 0; i < calculations.size(); i++) {
+            ((DefaultListModel) OldList.getModel()).addElement(calculations.get(i));
+        }
+        if (((DefaultListModel) OldList.getModel()).getSize() == 0) {
+            listLabel.setText("We didn't find any old calculatinos.");
+        } else {
+            listLabel.setText("Your old calculations:");
+        }
+    }//GEN-LAST:event_OldCalcActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        visibility.Invisible(OldCalc,NewCalc,jTextField1,jTextField2,
+                jTextField3,Area,Perim,Calc,options,jScrollPane1,
+                OldList,jScrollPane2,jLabel9,listLabel,Logout,BackButton,jLabel6, jLabel7,jLabel8);
+        
+        visibility.Visible(LoginPane);
+    }//GEN-LAST:event_LogoutActionPerformed
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        visibility.Invisible(OldCalc,NewCalc,jTextField1,jTextField2,
+                jTextField3,Area,Perim,Calc,options,jScrollPane1,
+                OldList,jScrollPane2,jLabel9,listLabel,Logout,BackButton,LoginPane,jLabel6, jLabel7,jLabel8);
+        visibility.Visible(OldCalc,NewCalc,Logout);
+    }//GEN-LAST:event_BackButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -715,12 +772,16 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Area;
+    private javax.swing.JButton BackButton;
     private javax.swing.JButton Calc;
+    private javax.swing.JPanel Choice;
     private javax.swing.JLayeredPane LoginPane;
+    private javax.swing.JButton Logout;
     private javax.swing.JButton NewCalc;
     private javax.swing.JButton OldCalc;
     private javax.swing.JList OldList;
     private javax.swing.JLabel Perim;
+    private javax.swing.JLayeredPane Results;
     private javax.swing.JButton SubmitButton;
     private javax.swing.JTextField Username;
     private javax.swing.JLabel jLabel1;
@@ -735,12 +796,13 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel listLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JList options;
     // End of variables declaration//GEN-END:variables

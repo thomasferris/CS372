@@ -12,11 +12,16 @@ import java.awt.*;
  * @author aferris17
  */
 public class Visibility {
-    public Visibility(){}
+    public Visibility(){};
     
     public void Invisible(Component... components){
         for (int i=0; i<components.length;i++){
             components[i].setVisible(false);
+        }
+    }
+    public void Visible(Component... components){
+        for (int i=0; i<components.length;i++){
+            components[i].setVisible(true);
         }
     }
 }
