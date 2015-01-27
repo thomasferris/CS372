@@ -5,7 +5,7 @@
  */
 
 package finalproject;
-
+import java.awt.*;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,10 +14,11 @@ import javax.swing.ImageIcon;
  */
 public class Images {
     private String selected;
-    private ImageIcon image = new ImageIcon();
-    public void setImage(String selected){
+    private ImageIcon image;
+    public ImageIcon setImage(String selected){
         if (selected.equals("Circle")){
-            image = (/Circle.jpg;
+            image = new ImageIcon(Images.class.getResource("/newpackage/Circle.jpg"));
         }
+        return image;
     }
 }
