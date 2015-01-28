@@ -23,9 +23,9 @@ import java.util.logging.Logger;
  */
 public class NewJFrame extends javax.swing.JFrame {
     
-    File f = new File("C:\\Users\\aferris17\\Documents\\Geometry.txt");
+    //File f = new File("C:\\Users\\aferris17\\Documents\\Geometry.txt");
     
-    //File f = new File ("Geometry.txt");
+    File f = new File ("Geometry.txt");
         
    
     Ellipse ell = null;
@@ -592,7 +592,8 @@ public class NewJFrame extends javax.swing.JFrame {
         try {
             wrtr = new BufferedWriter(new FileWriter(f,true));
             String line = String.format("%s\t%s, %s, %s",
-                    s, selected, Perim.getText(), Area.getText());
+                    s, selected,
+                    Perim.getText(), Area.getText());
             wrtr.write(line);
             wrtr.newLine();
             wrtr.close();
