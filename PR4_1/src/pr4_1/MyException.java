@@ -12,6 +12,7 @@ package pr4_1;
  */
 public class MyException extends Throwable{
     public MyException(){
+        //PT -- probably don't want to do System.out here. Just store the string (in the msg property), then let the UI display the error
         System.out.println("Not valid entry.");
     };
     public MyException(String msg){};
