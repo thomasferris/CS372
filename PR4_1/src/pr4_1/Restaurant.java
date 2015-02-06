@@ -20,7 +20,7 @@ public class Restaurant {
     private int _rating;
     
     Restaurant(String name, String add, String review, int rate)throws MyException{
-        if(rate<0 || rate>5){
+        if(rate<0 || rate>5){//PT -- Good
             throw new MyException();
         }
         _name = name;
@@ -28,7 +28,7 @@ public class Restaurant {
         _review = review;
         _rating = rate;
     }
-    
+    //PT -- javadoc? -4
     public String getName(){
         return _name;
     }
