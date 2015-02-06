@@ -41,6 +41,8 @@ public class NewJFrame extends javax.swing.JFrame {
     String s;
     String selected;
     ArrayList<String> array = new ArrayList<String>();
+    //PT -- There's actually a way to iterate through all classes in the package that implement ThreeD. If you
+    // took that approach, then when you add new shapes, you wouldn't need to update this array.
     ArrayList<String> shapeArray = new ArrayList<String>(Arrays.asList("Circle","Rectangle", "Triangle","Square","Ellipse",
     "Rectangular Pyramid","Cone","Elliptical Cylinder","Rectangular Prism","Sphere"));
     Visibility visibility;
