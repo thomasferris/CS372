@@ -12,7 +12,7 @@ package finalproject;
  */
 public class Cone extends ThreeD {
     private double _r,_h;
-    
+    //PT -- I like how simple each class is. This is good.
     public Cone(double r, double h) throws MyException{
         if (!(r>0&&h>0)){
             throw new MyException();
