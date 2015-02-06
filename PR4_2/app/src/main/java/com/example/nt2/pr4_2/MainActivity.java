@@ -50,7 +50,7 @@ public class MainActivity extends ActionBarActivity {
         TextView f = (TextView)this.findViewById(R.id.textHeads);
         TextView t =  (TextView)this.findViewById(R.id.textTails);
         ImageView x = (ImageView)this.findViewById(R.id.imageHeads);
-        x.setImageResource(R.drawable.heads);
+        x.setImageResource(R.drawable.heads); //PT -- do you have a drawable for tails? +5
 
         if (result == 0){
             f.setVisibility(View.VISIBLE);
